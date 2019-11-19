@@ -1,0 +1,115 @@
+@media (min-width: 577px) {
+    .playbar { position: absolute; width: 100%; height: var(--ion-playbar-height); bottom: 0; z-index: 10;
+        --webkit-transition: height 0.5s; --moz-transition: height 0.5s; --ms-transition: height 0.5s; --o-transition: height 0.5s; transition: height 0.5s;
+        ion-img { cursor: pointer; transition: all 0.3s ease-in-out;
+            &:hover, &:active { filter: brightness(75%) saturate(140%); }
+        }
+        .progressWrapper { height: 1px; width: 100%;
+            .trackProgress { width: 0px; height: 1px; background: #f74e6c;}
+        }
+    
+        .panel { width: 100%; height: 79px; position: relative; display: flex; flex-direction: row;
+            .side { width: 270px; height: 100%;
+                .wrapper { width: 100%; height: 100%; display: table;
+                    .playingInfo { width: 150px; height: 100%; display: table-cell; padding: 0 10px;
+                        .infos { width: 120px; height: 100%; display: table;
+                            .avatar { width: 50px; height: 100%; display: table-cell; vertical-align: middle;
+                                img { width: 45px; height: 45px; }
+                            }
+                            .info { width: calc(100% - 50px); height: 100%; text-align: left; display: table-cell; vertical-align: middle;
+                                p { margin: 0; font-size: 12px; font-family: 'Lato Bold'; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+                                    &.artist { }
+                                    &.title { }
+                                    &.album { }
+                                }
+                            }
+                        }
+                    }
+                    .segment { width: 120px; height: 100%; display: table-cell; vertical-align: middle;
+                        ion-segment { 
+                            ion-segment-button { height: 45px; min-height: 45px; width: 45px; max-width: 40px; min-width: 40px;
+                                --border-radius: 0; --color: transparent !important; --color-checked: transparent !important; --border-color: transition !important;
+                                --background-checked: transparent !important;
+                                i {
+                                    &.like { font-size: 15px; }
+                                    &.neutral { font-size: 20px; }
+                                    &.dislike { font-size: 15px; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .wave { width: calc(100vw - 420px); height: 100%;
+                .seekWrapper { display: table; width: 100%; height: 79px; position: relative;
+                    .space { width: 60px; height: 100%; display: table-cell;}
+                    ion-label { width: 50px; display: table-cell; vertical-align: middle; font-size: 13px; font-family: 'Lato Bold'; text-align: center;}
+                    .waveform { width: calc(100% - 300px); vertical-align: middle; position: absolute; top: 17px;} 
+                    .empty_waveform { width: calc(100% - 300px); height: 100%; background: transparent; position: absolute; top: 0; }
+                    .icon { width: 45px; height: 100%; display: table-cell; vertical-align: middle; text-align: center;
+                        i { cursor: pointer; font-size: 20px; }
+                    }
+                }
+            }
+            .themeWrapper { width: 150px; height: 100%; display: table;
+                .theme { width: 100%; height: 100%; text-align: center; display: table;
+                    .space { width: calc(100% - 100px); height: 100%; display: table-cell;}
+                    i { display: table-cell; vertical-align: middle; cursor: pointer; width: 70px; }
+                    ion-label { display: table-cell; vertical-align: middle; font-size: 15px; font-family: 'Lato Bold'; width: 30px; text-align: center; cursor: pointer;}
+                }
+            }
+        }
+    }
+}
+
+@media(min-width: 0px) and (max-width: 576px) {
+    .playbar { position: absolute; bottom: 0; width: 100%; height: 80px; bottom: 0; transition: bottom 0.3s ease-in-out; overflow: hidden; z-index: 20;
+        --webkit-transition: height 0.5s; --moz-transition: height 0.5s; --ms-transition: height 0.5s; --o-transition: height 0.5s; transition: height 0.5s;
+        ion-img { cursor: pointer; transition: all 0.3s ease-in-out;
+            &:hover, &:active { filter: brightness(75%) saturate(140%); }
+        }
+        .progressWrapper { height: 1px; width: 100%;
+            .trackProgress { width: 0px; height: 1px; background: #f74e6c;}
+        }
+        .panel { width: 100%; height: 79px; position: relative; display: flex; flex-direction: row;
+            .side { width: 270px; height: 100%; 
+                .wrapper { width: 100%; height: 100%; display: table; 
+                    .playingInfo { width: 150px; height: 100%; display: table-cell; padding: 0 10px; 
+                        .infos { width: 120px; height: 100%; display: table;
+                            .avatar { width: 50px; height: 100%; display: table-cell; vertical-align: middle;
+                                img { width: 45px; height: 45px; }
+                            }
+                            .info { width: calc(100% - 50px); height: 100%; text-align: left; display: table-cell; vertical-align: middle;
+                                p { margin: 0; font-size: 12px; font-family: 'Lato Bold'; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+                                    &.artist {}
+                                    &.title {}
+                                    &.album {}
+                                }
+                            }
+                        }
+                    }
+                    .segment { width: 120px; height: 100%; display: table-cell; vertical-align: middle;
+                        ion-segment { --border-color: none !important;
+                            ion-segment-button { height: 45px; min-height: 45px; width: 40px; max-width: 40px; min-width: 40px; 
+                                --border-radius: 0; --color: transparent !important; --color-checked: transparent !important; --background-checked: transparent !important;
+                                i {
+                                    &.like { font-size: 15px;}
+                                    &.neutral { font-size: 20px;}
+                                    &.dislike { font-size: 15px;}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .wave {}
+            .themeWrapper { width: calc(100% - 270px); height: 100%; display: table; padding-right: 10px;
+                .theme { width: 100%; height: 100%; text-align: center; display: table;
+                    .space { width: calc(100% - 50px); height: 100%; display: table-cell; }
+                    i { display: table-cell; vertical-align: middle; cursor: pointer; width: 40px; }
+                    ion-label { display: table-cell; vertical-align: middle; font-size: 15px; font-family: 'Lato Bold'; width: 30px; text-align: center; cursor: pointer;}
+                }
+            }
+        }
+    }
+}

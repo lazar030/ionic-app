@@ -1,0 +1,64 @@
+<div class="userPanel" id="userPanel" (clickOutside)="clickOutside()">
+    <div class="userInfoWrapper" [ngClass]="{'littlePadding': isExpanded == false}">
+        <div class="avatar">
+            <img [src]="'/assets/icon/profile.png'">
+        </div>
+        <div class="info" *ngIf="isExpanded">
+            <p class="username">Yurii Kosiak</p>
+            <p class="arena">Arena Free</p>
+            <p class="membership">Member since 2019</p>
+        </div>
+        <i class="fad fa-compress-arrows-alt" (click)="setUserPanelScaling()" nbTooltip="COLLAPSE" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger" *ngIf="isExpanded"></i>
+    </div>
+    <div class="mylink" id="userPanel_mylink">
+        <div class="item" *ngIf="!isExpanded">
+            <div class="icon">
+                <i class="fad fa-expand-arrows-alt" (click)="setUserPanelScaling()" nbTooltip="EXPAND" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger"></i>
+            </div>
+        </div>
+        <div class="item" [ngClass]="{'selected': curUrlTitle == 'profile'}">
+            <div class="icon">
+                <i class="fad fa-user-alt" *ngIf="isExpanded"></i>
+                <i class="fad fa-user-alt" nbTooltip="PROFILE" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger" *ngIf="!isExpanded"></i>
+            </div>
+            <div class="link" *ngIf="isExpanded">
+                <a [routerLink]="'my/profile'" (click)="navigate('profile')"><ion-label>Profile</ion-label></a>
+            </div>
+        </div>
+
+        <div class="item" [ngClass]="{'selected': curUrlTitle == 'favorites'}">
+            <div class="icon">
+                <i class="fad fa-user-music" *ngIf="isExpanded"></i>
+                <i class="fad fa-user-music" nbTooltip="FAVORITES" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger" *ngIf="!isExpanded"></i>
+            </div>
+            <div class="link" *ngIf="isExpanded">
+                <a [routerLink]="'my/favorites'" (click)="navigate('favorites')"><ion-label>Favorites</ion-label></a>
+            </div>
+        </div>
+
+        <div class="item" [ngClass]="{'selected': curUrlTitle == 'settings'}">
+            <div class="icon">
+                <i class="fad fa-user-cog" *ngIf="isExpanded"></i>
+                <i class="fad fa-user-cog" nbTooltip="SETTINGS" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger" *ngIf="!isExpanded"></i>
+            </div>
+            <div class="link" *ngIf="isExpanded">
+                <a [routerLink]="'my/settings'" (click)="navigate('settings')"><ion-label>Settings</ion-label></a>
+            </div>
+        </div>
+
+        <div class="item" [ngClass]="{'selected': curUrlTitle == 'account'}">
+            <div class="icon">
+                <i class="fad fa-user-lock" *ngIf="isExpanded"></i>
+                <i class="fad fa-user-lock" nbTooltip="ACCOUNT" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger" *ngIf="!isExpanded"></i>
+            </div>
+            <div class="link" *ngIf="isExpanded">
+                <a [routerLink]="'my/account'" (click)="navigate('account')"><ion-label>Account</ion-label></a>
+            </div>
+        </div>
+    </div>
+    <div class="scaleWrapper">
+        <div class="space"></div>
+        <i class="fad fa-eye-slash" (click)="closeUserPanel()" *ngIf="isShowed" nbTooltip="HIDE" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger"></i>
+        <div class="space"></div>
+    </div>
+</div>

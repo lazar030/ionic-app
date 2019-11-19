@@ -1,0 +1,47 @@
+<ion-content class="showToolBar contentExpandPadding playlist" id="content">
+  <ion-row>
+    <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
+      <div class="tableFixHead hide-xs">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>SONG</th>
+              <th>ARTIST</th>
+              <th>ALBUM</th>
+              <th>ISSUED DATE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let song of listSongs; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{song.title}}</td>
+              <td>{{song.artist}}</td>
+              <td>{{song.album}}</td>
+              <td>{{song.date}}</td>
+              <td>
+                <button *ngIf="checkPlayList[i] === undefined" (click)="addToPlayList(i)"><span>ADD</span></button>
+                <button *ngIf="checkPlayList[i] !== undefined" (click)="removeFromPlayList(song.id, i)"><span>CANCEL</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tableFixHead hide-xl hide-lg hide-md hide-sm">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>SONG</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

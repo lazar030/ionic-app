@@ -1,0 +1,59 @@
+<div class="playbar" id="playbar">
+  <div id="progressWrapper" class="progressWrapper">
+    <div id="trackProgress" class="trackProgress"></div>
+  </div>
+  <div class="panel">
+    <div class="side">
+      <div class="wrapper">
+        <div class="playingInfo">
+          <div class="infos">
+            <div class="avatar">
+              <img [src]="'/assets/icon/singer/profile3.png'">
+            </div>
+            <div class="info">
+              <p class="artist">Artist</p>
+              <p class="title">Title</p>
+              <p class="album">Album</p>
+            </div>
+          </div>
+        </div>
+        <div class="segment">
+          <ion-segment [(ngModel)]="songSelectState" [mode]="ios" (click)="selectSongState($event)">
+            <ion-segment-button value="like"><i class="fad fa-thumbs-up like" nbTooltip="LIKE" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i></ion-segment-button>
+            <ion-segment-button value="neutral"><i class="fad fa-user-music neutral" nbTooltip="NEUTRAL" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i></ion-segment-button>
+            <ion-segment-button value="dislike"><i class="fad fa-thumbs-down dislike" nbTooltip="DISLIKE" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i></ion-segment-button>
+          </ion-segment>
+        </div>
+      </div>
+    </div>
+    <div class="wave hide-xs">
+      <div class="seekWrapper">
+        <div class="space"></div>
+        <div class="icon">
+          <i class="fad fa-broadcast-tower" nbTooltip="RADIO (NOW PLAYING)" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+        </div>
+        <div class="icon">
+          <i class="fad fa-sliders-v setting" nbTooltip="CUSTOMIZE" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+        </div>
+        <div id="waveform" class="waveForm"></div>
+        <div class="empty_waveform"></div>
+        <ion-label class="duration" id="remainTime">{{songDuration}}</ion-label>
+        <div class="icon">
+          <i class="fad fa-play" (click)="play()" *ngIf="isPause || isStop" nbTooltip="PLAY" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+          <i class="fad fa-pause" (click)="pause()" *ngIf="isPlay" nbTooltip="PAUSE" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+        </div>
+        <div class="icon">
+          <i class="fad fa-step-forward" (click)="next()" nbTooltip="SKIP" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+        </div>
+      </div>
+    </div>
+    <div class="themeWrapper">
+      <div class="theme">
+        <div class="space"></div>
+        <i class="fad fa-sunset fa-2x" *ngIf="isDuskTheme" (click)="toggleAppTheme()" nbTooltip="{{nameTheme}}" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+        <i class="fad fa-sunrise fa-2x" *ngIf="!isDuskTheme" (click)="toggleAppTheme()" nbTooltip="{{nameTheme}}" nbTooltipPlacement="top" nbTooltipStatus="danger" status="danger"></i>
+        <ion-label nbTooltip="{{currentScreenViewPort}}" nbTooltipPlacement="left" nbTooltipStatus="danger" status="danger">{{currentScreenResolution}}</ion-label>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+@import '../style/mixin.scss';
+
+/** Nebular **/
+
+    nb-layout-column { padding: 0 !important; }
+    .cdk-overlay-pane { text-transform: uppercase; color: white; font-family: 'Lato Bold'; font-size: 13px; }
+    .nb-theme-dark nb-toast.status-success .icon-container { background: white; }
+    .nb-theme-dark nb-toast.status-warning .icon-container { background: white; }
+/** Content Wraper **/
+    .parent { margin-top: 30px;
+        @media (max-height: 732px) { margin-top: 0px; }
+    }
+    .logo-title { text-align: center; position: relative; margin-top: 50px;
+        .title-wrapper { position: absolute; bottom: 0; text-align: center; width: 100%;}
+        .title { margin: 0; @include resp-font(20px, 26px); font-weight: 321; margin-top: 5px;}
+        .title-row { margin-top: 20px;
+            @media(max-width: 576px) { margin-top: 0px; }
+        }
+        .logo-pos {
+            @media(max-width: 576px) { margin: auto; }
+        }
+    }
+    .align-left-logo { margin-left: -8px; }
+    .left-check { position: absolute; left: 0px; }
+    .right-check { height: 100%; position: absolute; right: 2px; }
+    .input-box {
+        form { margin-bottom: 30px;
+            .input_field { margin-top: 20px; height: 45px; @include resp-font(13px, 19px); border-radius: 3px; outline: none; padding: 0 20px;
+                @media (max-width: 576px) { height: 40px; margin-top: 10px;}
+            }
+        }
+    }
+/** Position Style **/
+    .position-relative { position: relative; }
+    .position-absolute { position: absolute; }
+    .position-fixed { position: fixed; }
+
+/** Item Align **/
+    .center { margin: auto; }
+    .txtCenter { text-align: center; }
+    .txtLeft { text-align: left; }
+    .txtRight { text-align: right; }
+
+/** Full Width & Height **/
+    .full-height { height: 100%; }
+    .full-width { width: 100%; }
+    .no-width { width: 0; }
+    .no-height { height: 0; }
+
+/** Scroll **/
+    .fixed { position: fixed; z-index: 999; }
+    .no-scroll { --overflow: hidden; }
+    .scroll{ overflow: auto;}
+
+/** Auto List **/ 
+    .auto-list {
+        ion-item { cursor: pointer; 
+            &:hover { filter: brightness(75%) saturate(140%); }
+        }
+    }
+    .searchbar-input.sc-ion-searchbar-md { box-shadow: none !important;}
+
+/** Alert **/
+    .loading-wrapper { background: transparent !important; }
+    .loading-wrapper.sc-ion-loading-ios { background: transparent !important; box-shadow: none !important; }
+    .loading-wrapper.sc-ion-loading-md { background: transparent !important; box-shadow: none !important; }
+    .spinner-bubbles.sc-ion-loading-md, .spinner-circles.sc-ion-loading-md, .spinner-crescent.sc-ion-loading-md, .spinner-dots.sc-ion-loading-md, .spinner-lines.sc-ion-loading-md, .spinner-lines-small.sc-ion-loading-md { color: #f74264; }
+    .spinner-bubbles.sc-ion-loading-ios, .spinner-circles.sc-ion-loading-ios, .spinner-crescent.sc-ion-loading-ios, .spinner-dots.sc-ion-loading-ios, .spinner-lines.sc-ion-loading-ios, .spinner-lines-small.sc-ion-loading-ios { color: #f74264; }
+/** Toast **/
+    .toastPosition { width: 500px; margin-left: calc(100% - 500px); font-size: 20px; text-align: center; 
+        @media (max-width: 576px) { width: 250px; margin-left: calc(100% - 250px); font-size: 16px;}
+    }
+
+/** Popover **/
+    .popover-translucent.sc-ion-popover-ios-h .popover-arrow.sc-ion-popover-ios:after, .popover-translucent.sc-ion-popover-ios-h .popover-content.sc-ion-popover-ios {
+        background: rgba(255,255,255,1);
+    }
+
+/** Playlist Style **/
+    .playlist { width: 100%; height: 50px; display: flex; flex-direction: row; flex: 4;
+        .status { width: 16px;
+            i { margin-top: 20px; color: red;
+                &.playing { color: green; }
+            }
+        }
+        .avatar { flex: 1;
+            img { width: 40px; height: 40px; margin-top: 5px; }
+        }
+        .info { flex: 3; padding-top: 9px; padding-left: 10px;
+            p { margin: 0; color: #1a1c29; 
+                &.title { font-size: 13px; }
+                &.album { font-size: 12px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+            }
+        }
+    }
